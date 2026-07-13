@@ -6,7 +6,9 @@ description: >
   manual research on every release for AdMob, Firebase, RevenueCat, and other
   third-party SDKs.
 version: 0.1.0
-# repository: https://github.com/my_org/privacy_ledger
+repository: https://github.com/ranahammad7/privacy_ledger
+homepage: https://github.com/ranahammad7/privacy_ledger
+issue_tracker: https://github.com/ranahammad7/privacy_ledger/issues
 
 environment:
   sdk: ^3.10.7
