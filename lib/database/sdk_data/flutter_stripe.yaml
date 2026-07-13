@@ -5,26 +5,32 @@ data_collected:
     purpose: app_functionality
     shared_with_third_parties: true
     optional: false
+    linked_to_identity: true
   - type: payment_info
     purpose: app_functionality
     shared_with_third_parties: true
     optional: false
+    linked_to_identity: true
   - type: name
     purpose: app_functionality
     shared_with_third_parties: true
     optional: true
+    linked_to_identity: true
   - type: email
     purpose: app_functionality
     shared_with_third_parties: true
     optional: true
+    linked_to_identity: true
   - type: device_id
     purpose: fraud_prevention
     shared_with_third_parties: true
     optional: false
+    linked_to_identity: true
   - type: approximate_location
     purpose: fraud_prevention
     shared_with_third_parties: true
     optional: true
+    linked_to_identity: false
 encrypted_in_transit: true
 user_can_request_deletion: true
 requires_xcprivacy_entry: true
@@ -37,4 +43,7 @@ notes: >
   characteristics for Radar fraud detection (can be disabled via
   advancedFraudSignalsEnabled). Exact fields vary by PaymentSheet config —
   needs manual verification for billing address, phone, and fraud-signal
-  settings in your integration.
+  settings in your integration. linked_to_identity for approximate_location
+  is set false on the judgment that IP-derived location is used transiently
+  for fraud signals and not stored as a customer profile attribute —
+  needs manual verification against your Radar / account settings.

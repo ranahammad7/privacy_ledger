@@ -1,5 +1,6 @@
 import 'package:privacy_ledger/database/sdk_database.dart';
 import 'package:privacy_ledger/generators/play_datasafety_generator.dart';
+import 'package:privacy_ledger/scanner/pubspec_scanner.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -36,5 +37,36 @@ void main() {
     expect(md, contains('App functionality'));
     expect(md, contains('Collected by multiple SDKs:'));
     expect(md, contains('purchase_history'));
+  });
+
+  test('purpose line is joined without Dart list brackets', () async {
+    final db = await SdkDatabase.load();
+    final md = PlayDatasafetyGenerator().generateMarkdown([
+      db.lookup('flutter_stripe')!,
+    ]);
+
+    expect(md, contains('- **Purpose:** App functionality'));
+    expect(
+      md,
+      contains('- **Purpose:** Fraud prevention, security, and compliance'),
+    );
+    expect(md, isNot(contains('**Purpose:** [')));
+  });
+
+  test('markdown includes project name and version when provided', () async {
+    final db = await SdkDatabase.load();
+    final md = PlayDatasafetyGenerator().generateMarkdown(
+      [db.lookup('flutter_stripe')!],
+      project: const ProjectInfo(
+        name: 'nsol_customer_portal',
+        version: '1.0.0+1',
+        projectPath: r'D:\nsol_customer_portal',
+        description: 'NSOL Customer Portal',
+      ),
+    );
+
+    expect(md, contains('nsol_customer_portal'));
+    expect(md, contains('1.0.0+1'));
+    expect(md, contains('NSOL Customer Portal'));
   });
 }

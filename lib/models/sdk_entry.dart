@@ -7,11 +7,17 @@ class DataCollectionItem {
   final bool sharedWithThirdParties;
   final bool optional;
 
+  /// Whether this data type is linked to the user's identity (Apple
+  /// `NSPrivacyCollectedDataTypeLinked`). Defaults to `true` when omitted in
+  /// YAML — most real-account data is identity-linked; set `false` explicitly.
+  final bool linkedToIdentity;
+
   const DataCollectionItem({
     required this.type,
     required this.purpose,
     required this.sharedWithThirdParties,
     required this.optional,
+    this.linkedToIdentity = true,
   });
 
   factory DataCollectionItem.fromYaml(YamlMap map) {
@@ -20,6 +26,7 @@ class DataCollectionItem {
       purpose: map['purpose'] as String,
       sharedWithThirdParties: map['shared_with_third_parties'] as bool,
       optional: map['optional'] as bool,
+      linkedToIdentity: map['linked_to_identity'] as bool? ?? true,
     );
   }
 
@@ -30,11 +37,17 @@ class DataCollectionItem {
           type == other.type &&
           purpose == other.purpose &&
           sharedWithThirdParties == other.sharedWithThirdParties &&
-          optional == other.optional;
+          optional == other.optional &&
+          linkedToIdentity == other.linkedToIdentity;
 
   @override
-  int get hashCode =>
-      Object.hash(type, purpose, sharedWithThirdParties, optional);
+  int get hashCode => Object.hash(
+    type,
+    purpose,
+    sharedWithThirdParties,
+    optional,
+    linkedToIdentity,
+  );
 }
 
 /// An SDK database entry describing a known Flutter package's data practices.
@@ -64,8 +77,8 @@ class SdkEntry {
     final dataCollected = rawCollected == null
         ? <DataCollectionItem>[]
         : rawCollected
-              .map((e) => DataCollectionItem.fromYaml(e as YamlMap))
-              .toList();
+            .map((e) => DataCollectionItem.fromYaml(e as YamlMap))
+            .toList();
 
     final rawApis = map['required_reason_apis'] as YamlList?;
     final requiredReasonApis = rawApis == null
@@ -79,7 +92,8 @@ class SdkEntry {
       encryptedInTransit: map['encrypted_in_transit'] as bool? ?? false,
       userCanRequestDeletion:
           map['user_can_request_deletion'] as bool? ?? false,
-      requiresXcprivacyEntry: map['requires_xcprivacy_entry'] as bool? ?? false,
+      requiresXcprivacyEntry:
+          map['requires_xcprivacy_entry'] as bool? ?? false,
       requiredReasonApis: requiredReasonApis,
       notes: map['notes'] as String?,
     );

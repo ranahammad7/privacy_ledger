@@ -79,7 +79,14 @@ Future<void> _runScan({
   required bool dryRun,
 }) async {
   final scanner = PubspecScanner();
+  final project = scanner.readProjectInfo(projectPath);
   final deps = scanner.scan(projectPath);
+
+  stdout.writeln();
+  stdout.writeln('App: ${project.name} @ ${project.version}');
+  if (project.description != null && project.description!.trim().isNotEmpty) {
+    stdout.writeln('  ${project.description!.trim()}');
+  }
 
   final overrides = File(
     '$projectPath${Platform.pathSeparator}privacy_ledger.overrides.yaml',
@@ -164,13 +171,13 @@ Future<void> _runScan({
   final sep = Platform.pathSeparator;
 
   final xcprivacyPath = '${outDir.path}${sep}PrivacyInfo.xcprivacy';
-  XcprivacyGenerator().writeToFile(matched, xcprivacyPath);
+  XcprivacyGenerator().writeToFile(matched, xcprivacyPath, project: project);
 
   final playPath = '${outDir.path}${sep}play_data_safety.md';
-  PlayDatasafetyGenerator().writeToFile(matched, playPath);
+  PlayDatasafetyGenerator().writeToFile(matched, playPath, project: project);
 
   final policyPath = '${outDir.path}${sep}policy_summary.md';
-  PolicySummaryGenerator().writeToFile(matched, policyPath);
+  PolicySummaryGenerator().writeToFile(matched, policyPath, project: project);
 
   stdout.writeln();
   stdout.writeln('Wrote:');

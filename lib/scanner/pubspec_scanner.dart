@@ -2,6 +2,21 @@ import 'dart:io';
 
 import 'package:yaml/yaml.dart';
 
+/// Project identity fields from pubspec.yaml (not Apple plist keys).
+class ProjectInfo {
+  final String name;
+  final String version;
+  final String? description;
+  final String projectPath;
+
+  const ProjectInfo({
+    required this.name,
+    required this.version,
+    required this.projectPath,
+    this.description,
+  });
+}
+
 /// A single dependency discovered from pubspec.yaml / pubspec.lock.
 class ScannedDependency {
   final String packageName;
@@ -32,6 +47,35 @@ class ScannedDependency {
 
 /// Parses pubspec.yaml and pubspec.lock to produce a normalized dependency list.
 class PubspecScanner {
+  /// Reads package name / version / description from pubspec.yaml.
+  ProjectInfo readProjectInfo(String projectRoot) {
+    final pubspecFile = File(
+      '${Directory(projectRoot).path}${Platform.pathSeparator}pubspec.yaml',
+    );
+    if (!pubspecFile.existsSync()) {
+      throw StateError(
+        'No pubspec.yaml found at ${pubspecFile.path}. '
+        'Pass the root of a Dart/Flutter project.',
+      );
+    }
+
+    final yaml = loadYaml(pubspecFile.readAsStringSync());
+    if (yaml is! YamlMap) {
+      throw StateError('pubspec.yaml is not a valid YAML map.');
+    }
+
+    final name = yaml['name']?.toString() ?? 'unknown';
+    final version = yaml['version']?.toString() ?? '0.0.0';
+    final description = yaml['description']?.toString();
+
+    return ProjectInfo(
+      name: name,
+      version: version,
+      description: description,
+      projectPath: Directory(projectRoot).absolute.path,
+    );
+  }
+
   /// Scans [projectRoot] for direct and transitive dependencies.
   ///
   /// Throws [StateError] if pubspec.yaml is missing, or if pubspec.lock is

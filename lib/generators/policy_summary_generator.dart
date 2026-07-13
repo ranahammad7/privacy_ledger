@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:privacy_ledger/models/sdk_entry.dart';
+import 'package:privacy_ledger/scanner/pubspec_scanner.dart';
 
 /// Generates a plain-English privacy-policy paragraph from matched SDKs.
 class PolicySummaryGenerator {
@@ -36,11 +37,27 @@ class PolicySummaryGenerator {
     'biometric': 'biometric authentication signals (processed on-device)',
   };
 
-  String generate(List<SdkEntry> sdks) {
+  String generate(List<SdkEntry> sdks, {ProjectInfo? project}) {
+    final buffer = StringBuffer();
+    buffer.writeln('# Privacy summary');
+    buffer.writeln();
+    if (project != null) {
+      buffer.writeln('**App:** ${project.name} `${project.version}`');
+      if (project.description != null &&
+          project.description!.trim().isNotEmpty) {
+        buffer.writeln();
+        buffer.writeln(project.description!.trim());
+      }
+      buffer.writeln();
+    }
+
     if (sdks.isEmpty) {
-      return 'This app does not currently declare third-party SDK data '
-          'collection through privacy_ledger. Review your own code and any '
-          'SDKs not yet in the database before publishing a privacy policy.\n';
+      buffer.writeln(
+        'This app does not currently declare third-party SDK data '
+        'collection through privacy_ledger. Review your own code and any '
+        'SDKs not yet in the database before publishing a privacy policy.',
+      );
+      return buffer.toString();
     }
 
     // Group data types by purpose (not by SDK).
@@ -60,9 +77,6 @@ class PolicySummaryGenerator {
       }
     }
 
-    final buffer = StringBuffer();
-    buffer.writeln('# Privacy summary');
-    buffer.writeln();
     buffer.write(
       'This app uses third-party services that help it run, measure usage, '
       'and (where applicable) show ads or process in-app purchases. ',
@@ -138,15 +152,20 @@ class PolicySummaryGenerator {
     buffer.writeln();
 
     // Ensure we have a machine-checkable list of distinct types for tests.
-    buffer.writeln('<!-- data_types: ${allTypes.toList()..sort()} -->');
+    final sortedTypes = allTypes.toList()..sort();
+    buffer.writeln('<!-- data_types: ${sortedTypes.join(', ')} -->');
 
     return buffer.toString();
   }
 
-  void writeToFile(List<SdkEntry> sdks, String outputPath) {
+  void writeToFile(
+    List<SdkEntry> sdks,
+    String outputPath, {
+    ProjectInfo? project,
+  }) {
     final file = File(outputPath);
     file.parent.createSync(recursive: true);
-    file.writeAsStringSync(generate(sdks));
+    file.writeAsStringSync(generate(sdks, project: project));
   }
 
   static String _joinAnd(List<String> items) {

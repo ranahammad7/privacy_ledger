@@ -35,8 +35,10 @@ notes: "Country-gating ads does not change declarations."
       expect(entry.dataCollected[0].purpose, 'advertising');
       expect(entry.dataCollected[0].sharedWithThirdParties, isTrue);
       expect(entry.dataCollected[0].optional, isFalse);
+      expect(entry.dataCollected[0].linkedToIdentity, isTrue); // default
       expect(entry.dataCollected[1].type, 'approximate_location');
       expect(entry.dataCollected[1].optional, isTrue);
+      expect(entry.dataCollected[1].linkedToIdentity, isTrue); // default
       expect(entry.encryptedInTransit, isTrue);
       expect(entry.userCanRequestDeletion, isFalse);
       expect(entry.requiresXcprivacyEntry, isTrue);
@@ -88,6 +90,22 @@ optional: true
       expect(item.purpose, 'app_functionality');
       expect(item.sharedWithThirdParties, isFalse);
       expect(item.optional, isTrue);
+      expect(item.linkedToIdentity, isTrue);
+    });
+
+    test('parses linked_to_identity false when explicit', () {
+      final yaml =
+          loadYaml('''
+type: approximate_location
+purpose: fraud_prevention
+shared_with_third_parties: true
+optional: true
+linked_to_identity: false
+''')
+              as YamlMap;
+
+      final item = DataCollectionItem.fromYaml(yaml);
+      expect(item.linkedToIdentity, isFalse);
     });
   });
 }
