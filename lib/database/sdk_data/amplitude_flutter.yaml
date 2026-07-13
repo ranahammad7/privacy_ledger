@@ -1,0 +1,30 @@
+package: amplitude_flutter
+display_name: Amplitude
+data_collected:
+  - type: device_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: approximate_location
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: true
+  - type: user_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Amplitude analytics SDKs typically collect device identifiers, session and
+  event data, and optionally user IDs / location derived from IP depending on
+  configuration. needs manual verification against Amplitude's current
+  privacy / App Store disclosure docs and your Amplitude project settings
+  (IDFA, location, user property policies) — do not treat this entry as
+  audited for a specific Amplitude SDK version.

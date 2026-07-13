@@ -1,0 +1,11 @@
+package: dio
+display_name: Dio
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  HTTP client only. Does not define what data is sent — that is your API
+  contract. No Dio-vendor analytics by default. Do not treat an empty entry
+  as "app collects nothing."

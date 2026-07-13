@@ -1,0 +1,10 @@
+package: sqflite
+display_name: sqflite
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Local SQLite database. No vendor transmission. Declare data types for
+  whatever personal data *you* store in the DB.

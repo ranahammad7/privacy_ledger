@@ -1,0 +1,38 @@
+package: google_mobile_ads
+display_name: Google AdMob
+data_collected:
+  - type: device_id
+    purpose: advertising
+    shared_with_third_parties: true
+    optional: false
+  - type: approximate_location
+    purpose: advertising
+    shared_with_third_parties: true
+    optional: true
+  - type: advertising_data
+    purpose: advertising
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: advertising
+    shared_with_third_parties: true
+    optional: false
+  - type: crash_data
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: performance_data
+    purpose: advertising
+    shared_with_third_parties: true
+    optional: false
+encrypted_in_transit: true
+user_can_request_deletion: false
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults, DiskSpace]
+notes: >
+  Based on Google's App Store data disclosure for the Mobile Ads SDK
+  (https://developers.google.com/admob/ios/privacy/data-disclosure).
+  IP address may be used to estimate general location. Device ID includes
+  advertising identifier. Country-gating where ads show does not change what
+  the SDK declares it collects — still applies globally. Native SDK 11.2.0+
+  ships its own PrivacyInfo.xcprivacy; this entry is for app-level aggregation.

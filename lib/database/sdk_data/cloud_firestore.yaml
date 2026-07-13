@@ -1,0 +1,19 @@
+package: cloud_firestore
+display_name: Cloud Firestore
+data_collected:
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Based on https://firebase.google.com/docs/ios/app-store-data-collection
+  (FirebaseFirestore). By default collects Firebase user agent when data
+  collection is enabled — not end-user PII by itself. What you *store* in
+  Firestore documents (emails, tokens, etc.) is your responsibility and is
+  not reflected here. Declare additional types in
+  privacy_ledger.overrides.yaml for data your app writes. needs manual
+  verification of stored document fields.

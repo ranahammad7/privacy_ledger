@@ -1,0 +1,23 @@
+package: posthog_flutter
+display_name: PostHog
+data_collected:
+  - type: device_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: user_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Product analytics. Default session/device identifiers and events; identify()
+  adds user id. needs manual verification against your PostHog project
+  settings (session replay, autocapture, person profiles).

@@ -1,0 +1,10 @@
+package: package_info_plus
+display_name: package_info_plus
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Reads app name/version/build number from the package — not user personal
+  data. No third-party transmission by the plugin.

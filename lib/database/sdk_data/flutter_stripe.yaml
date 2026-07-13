@@ -1,0 +1,40 @@
+package: flutter_stripe
+display_name: Stripe
+data_collected:
+  - type: purchase_history
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: payment_info
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: name
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: email
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: device_id
+    purpose: fraud_prevention
+    shared_with_third_parties: true
+    optional: false
+  - type: approximate_location
+    purpose: fraud_prevention
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Based on Stripe Privacy Policy / Privacy Center and Advanced Fraud Detection
+  docs (https://docs.stripe.com/disputes/prevention/advanced-fraud-detection).
+  Payment method details are tokenized to Stripe; purchase/transaction data is
+  processed by Stripe as a payment processor. Mobile SDKs may collect device
+  characteristics for Radar fraud detection (can be disabled via
+  advancedFraudSignalsEnabled). Exact fields vary by PaymentSheet config —
+  needs manual verification for billing address, phone, and fraud-signal
+  settings in your integration.

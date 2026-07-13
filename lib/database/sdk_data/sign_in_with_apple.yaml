@@ -1,0 +1,22 @@
+package: sign_in_with_apple
+display_name: Sign in with Apple
+data_collected:
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: email
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: name
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Apple ID auth. User identifier always; email/name only if requested and
+  user chooses to share (or hide email relay). Shared with Apple as IdP.

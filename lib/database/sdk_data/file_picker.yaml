@@ -1,0 +1,22 @@
+package: file_picker
+display_name: file_picker
+data_collected:
+  - type: photos
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+  - type: files_and_docs
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Community plugin (miguelpruivo/flutter_file_picker). Local file/document
+  (and optionally media) picking — does not phone home. On iOS may pull in
+  DKImagePickerController for media types, which can trigger camera/photo
+  privacy strings even for document-only use — needs manual verification of
+  your FileType usage and Pod/SPM deps. Plugin includes PrivacyInfo.xcprivacy
+  in recent versions. shared_with_third_parties false unless you upload files.

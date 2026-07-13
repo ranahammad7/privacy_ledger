@@ -1,0 +1,16 @@
+package: in_app_purchase
+display_name: in_app_purchase
+data_collected:
+  - type: purchase_history
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Official Flutter IAP plugin wrapping StoreKit / Google Play Billing.
+  Purchase history is processed by Apple/Google as platform payment
+  processors (shared_with_third_parties true). Does not send purchases to a
+  separate analytics vendor unless you also use RevenueCat / your backend.

@@ -1,0 +1,16 @@
+package: local_auth
+display_name: local_auth
+data_collected:
+  - type: biometric
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Official Flutter local authentication (biometric / device credentials).
+  Biometric templates stay in the OS secure enclave — plugin does not upload
+  biometrics. Play may still ask you to declare biometrics if used for auth.
+  needs manual verification against your auth UX copy.

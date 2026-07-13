@@ -1,0 +1,23 @@
+name: privacy_ledger
+description: >
+  Scans a Flutter project's dependency tree and generates privacy disclosure
+  artifacts for Apple (PrivacyInfo.xcprivacy) and Google Play (Data Safety
+  form) from a curated SDK data-collection database — so you stop redoing
+  manual research on every release for AdMob, Firebase, RevenueCat, and other
+  third-party SDKs.
+version: 0.1.0
+# repository: https://github.com/my_org/privacy_ledger
+
+environment:
+  sdk: ^3.10.7
+
+executables:
+  privacy_ledger:
+
+dependencies:
+  args: ^2.7.0
+  yaml: ^3.1.3
+
+dev_dependencies:
+  lints: ^6.0.0
+  test: ^1.25.6

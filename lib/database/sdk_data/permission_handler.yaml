@@ -1,0 +1,11 @@
+package: permission_handler
+display_name: permission_handler
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Requests OS permissions only — does not collect or transmit user data.
+  Declare data types for the features those permissions unlock (camera,
+  location, etc.) via those other packages / your app code.

@@ -1,0 +1,23 @@
+package: firebase_messaging
+display_name: Firebase Cloud Messaging
+data_collected:
+  - type: device_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Based on https://firebase.google.com/docs/ios/app-store-data-collection
+  (FirebaseMessaging). Always collects APNs token associated with an
+  installation/FCM registration token, plus device model, language, time
+  zone, OS version, and app identifiers for topic subscribe/unsubscribe.
+  Product interaction (notification opens) is usage-dependent when Analytics
+  is also present. needs manual verification if you disable Analytics
+  auto-logging.

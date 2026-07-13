@@ -1,0 +1,24 @@
+package: google_maps_flutter
+display_name: Google Maps Flutter
+data_collected:
+  - type: precise_location
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: approximate_location
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: device_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+encrypted_in_transit: true
+user_can_request_deletion: false
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Google Maps SDK via Flutter plugin. Location may be used when you enable
+  my-location layer; Google receives map requests / diagnostics. Exact Maps
+  SDK data practices need manual verification against Google Maps Platform /
+  Mobile Maps SDK disclosure docs for your SDK version.

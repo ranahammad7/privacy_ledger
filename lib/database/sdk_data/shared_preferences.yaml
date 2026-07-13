@@ -1,0 +1,15 @@
+package: shared_preferences
+display_name: shared_preferences
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Official Flutter plugin. Does not transmit data to a third-party analytics
+  vendor — stores key/value pairs locally via NSUserDefaults / Android
+  SharedPreferences. Declared here for Apple Required Reason API
+  (NSPrivacyAccessedAPICategoryUserDefaults). Plugin ships its own
+  PrivacyInfo.xcprivacy in shared_preferences_foundation. Reason code is
+  typically CA92.1 or 1C8F.1 — verify against Apple's list before submission.
+  What *you* store in prefs (tokens, emails) is your responsibility.

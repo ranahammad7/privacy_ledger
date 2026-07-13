@@ -1,0 +1,26 @@
+package: google_sign_in
+display_name: Google Sign-In
+data_collected:
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: email
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: name
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Collects account identifiers required for OAuth sign-in (Google user ID,
+  email, and optionally display name / profile photo depending on scopes).
+  Data is shared with Google as the identity provider. Exact scopes and
+  whether profile photo is requested need manual verification against your
+  GoogleSignIn configuration. Deletion is handled by removing the Google
+  account link / app access via Google account settings.

@@ -1,0 +1,20 @@
+package: geolocator
+display_name: Geolocator
+data_collected:
+  - type: precise_location
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+  - type: approximate_location
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Baseflow geolocator. Reads device location for your app; does not send
+  locations to Baseflow. shared_with_third_parties false by default — override
+  if you forward coordinates to maps/analytics backends. Needs location
+  permission strings and Play/App Store location declarations when used.

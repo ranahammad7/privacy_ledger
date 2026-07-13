@@ -1,0 +1,18 @@
+package: camera
+display_name: camera
+data_collected:
+  - type: photos
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+  - type: videos
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Official Flutter camera plugin. Captures media on-device only until your app
+  uploads it. Requires camera (and often mic) usage descriptions.

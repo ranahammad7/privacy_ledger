@@ -1,0 +1,17 @@
+package: device_info_plus
+display_name: device_info_plus
+data_collected:
+  - type: device_id
+    purpose: analytics
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  fluttercommunity plus plugin. Reads device model/OS identifiers locally.
+  Only declare Device ID if *you* collect and process those values (e.g. send
+  to your API). Plugin does not transmit to a vendor endpoint. Purpose may be
+  App functionality instead of Analytics depending on use — needs manual
+  verification.

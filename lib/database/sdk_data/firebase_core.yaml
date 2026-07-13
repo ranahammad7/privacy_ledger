@@ -1,0 +1,38 @@
+package: firebase_core
+display_name: Firebase Core (Analytics + Crashlytics)
+data_collected:
+  - type: crash_data
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: device_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: performance_data
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: diagnostics
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults, FileTimestamp]
+notes: >
+  firebase_core itself collects no user data
+  (https://firebase.google.com/docs/ios/app-store-data-collection), but apps
+  that add Firebase typically also pull Analytics and/or Crashlytics. This
+  entry covers that common stack: Crashlytics always collects stack traces,
+  device/OS info; Analytics collects Device ID, product interaction, and
+  related usage data (see Google Analytics support docs). user_can_request_deletion
+  is true via Firebase data deletion requests. Verify which Firebase products
+  your app actually enables — disable Analytics collection if unused.
+  Needs manual verification of exact Analytics shared-with-third-parties
+  posture for your Firebase/Google account configuration.

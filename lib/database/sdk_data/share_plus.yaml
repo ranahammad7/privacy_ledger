@@ -1,0 +1,10 @@
+package: share_plus
+display_name: share_plus
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  System share sheet only — content shared goes to the destination app the
+  user picks. Plugin does not collect share content to a plus-plugins server.

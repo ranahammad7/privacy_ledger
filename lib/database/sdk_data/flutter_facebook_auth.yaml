@@ -1,0 +1,24 @@
+package: flutter_facebook_auth
+display_name: Facebook Login
+data_collected:
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: email
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: name
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Facebook/Meta Login via flutter_facebook_auth. Profile fields depend on
+  Graph permissions you request. Meta is a third party. If you also use
+  Facebook App Events / SDK tracking, add advertising identifiers via
+  override — needs manual verification of Login vs App Events usage.

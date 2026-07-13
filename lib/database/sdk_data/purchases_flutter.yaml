@@ -1,0 +1,28 @@
+package: purchases_flutter
+display_name: RevenueCat
+data_collected:
+  - type: purchase_history
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: purchase_history
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Based on RevenueCat Apple App Privacy docs
+  (https://www.revenuecat.com/docs/platform-resources/apple-platform-resources/apple-app-privacy).
+  Purchase History is always required (App Functionality + Analytics purposes).
+  User ID is optional — only collected when you set a custom app user ID.
+  Device ID only if advertising-identifier integrations are enabled; not
+  declared here by default. shared_with_third_parties reflects RevenueCat as
+  a third-party processor. Deletion supported via RevenueCat customer deletion
+  APIs / dashboard.

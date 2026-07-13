@@ -1,0 +1,11 @@
+package: url_launcher
+display_name: url_launcher
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Official Flutter plugin. Opens URLs in browser/external apps — does not
+  collect user data by itself. Destination sites may set cookies after leave;
+  that is outside this plugin's declaration.

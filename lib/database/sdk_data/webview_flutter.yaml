@@ -1,0 +1,15 @@
+package: webview_flutter
+display_name: webview_flutter
+data_collected:
+  - type: product_interaction
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Official Flutter WebView. Data practices depend entirely on URLs/scripts you
+  load (cookies, third-party trackers). This entry is a stub — needs manual
+  verification against embedded web content. Does not itself phone home.

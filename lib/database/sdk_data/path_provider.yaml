@@ -1,0 +1,12 @@
+package: path_provider
+display_name: path_provider
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [DiskSpace, FileTimestamp]
+notes: >
+  Official Flutter plugin for app sandbox paths. No third-party data
+  transmission. Included for Required Reason API surface used by foundation
+  implementations. Verify reason codes against Apple's list. What you write
+  under those paths is your responsibility.

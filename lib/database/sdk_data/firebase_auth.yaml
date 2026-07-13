@@ -1,0 +1,30 @@
+package: firebase_auth
+display_name: Firebase Authentication
+data_collected:
+  - type: user_id
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: false
+  - type: email
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: phone_number
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+  - type: name
+    purpose: app_functionality
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Based on https://firebase.google.com/docs/ios/app-store-data-collection
+  (FirebaseAuthentication). Always generates/stores auth identifiers.
+  Email, phone, display name are usage-dependent (only if you enable those
+  auth methods or federated providers return them). Contact info from
+  third-party IdPs depends on scopes granted — needs manual verification
+  for your specific sign-in providers.

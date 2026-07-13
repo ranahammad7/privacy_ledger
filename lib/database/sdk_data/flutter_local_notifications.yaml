@@ -1,0 +1,11 @@
+package: flutter_local_notifications
+display_name: flutter_local_notifications
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Schedules local notifications on-device. Does not provide a push token
+  service by itself (unlike FCM/OneSignal). No vendor data collection.
+  If you combine with FCM, declare messaging via firebase_messaging.

@@ -1,0 +1,23 @@
+package: image_picker
+display_name: image_picker
+data_collected:
+  - type: photos
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+  - type: videos
+    purpose: app_functionality
+    shared_with_third_parties: false
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: []
+notes: >
+  Official Flutter plugin for picking images/videos from gallery or camera.
+  Does not upload media to a Flutter/Google endpoint by itself — collection
+  is on-device until *your* app uploads it. Declare Photos/Videos in store
+  forms if users can pick media. Requires Info.plist usage strings
+  (NSPhotoLibraryUsageDescription / NSCameraUsageDescription) as applicable.
+  shared_with_third_parties false for the plugin; set true via override if
+  you upload picks to your backend or CDN.

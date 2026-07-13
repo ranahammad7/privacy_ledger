@@ -1,0 +1,11 @@
+package: connectivity_plus
+display_name: connectivity_plus
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Reports connectivity type (wifi/mobile/none) to the app process. Not
+  typically declared as a standalone data type on Play/App Store forms unless
+  you log it to analytics — needs manual verification if you forward it.

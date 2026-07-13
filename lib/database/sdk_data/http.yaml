@@ -1,0 +1,10 @@
+package: http
+display_name: http
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Dart http client. Same as Dio — transport only; your request/response
+  bodies determine disclosures.

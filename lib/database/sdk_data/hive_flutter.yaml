@@ -1,0 +1,10 @@
+package: hive_flutter
+display_name: Hive
+data_collected: []
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: false
+required_reason_apis: []
+notes: >
+  Local key-value / box storage. No vendor transmission. Declare based on
+  what you persist. (Package name hive_flutter; pure hive is similar.)

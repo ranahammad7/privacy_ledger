@@ -1,0 +1,30 @@
+package: mixpanel_flutter
+display_name: Mixpanel
+data_collected:
+  - type: device_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: product_interaction
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: approximate_location
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: false
+  - type: user_id
+    purpose: analytics
+    shared_with_third_parties: true
+    optional: true
+encrypted_in_transit: true
+user_can_request_deletion: true
+requires_xcprivacy_entry: true
+required_reason_apis: [UserDefaults]
+notes: >
+  Based on https://mixpanel.com/legal/app-store-privacy-details. Default iOS
+  collection includes device identifiers, usage/session data, and
+  city/region/country from IP (not precise location). Distinct ID / user
+  identity depends on identify() calls. Mixpanel states they process only
+  data you send and do not combine with other sources — still a third-party
+  processor. Exact event properties you send need manual verification.
