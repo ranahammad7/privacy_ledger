@@ -11,7 +11,7 @@ homepage: https://github.com/ranahammad7/privacy_ledger
 issue_tracker: https://github.com/ranahammad7/privacy_ledger/issues
 
 environment:
-  sdk: ^3.10.7
+  sdk: '>=3.0.0 <4.0.0'
 
 executables:
   privacy_ledger:
