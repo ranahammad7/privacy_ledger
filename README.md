@@ -99,6 +99,7 @@ packages:
         purpose: analytics
         shared_with_third_parties: false
         optional: false
+        linked_to_identity: true
     encrypted_in_transit: true
     user_can_request_deletion: true
     requires_xcprivacy_entry: false
@@ -112,13 +113,17 @@ packages:
         purpose: advertising
         shared_with_third_parties: true
         optional: false
+        linked_to_identity: true
     encrypted_in_transit: true
     user_can_request_deletion: false
     requires_xcprivacy_entry: true
     required_reason_apis: [UserDefaults]
 ```
 
-Field shape matches the bundled YAML under `lib/database/sdk_data/`.
+`linked_to_identity` maps to Apple's `NSPrivacyCollectedDataTypeLinked`.
+If omitted, it defaults to `true` — set `false` only when the data is not
+tied to a user/account. Field shape otherwise matches the bundled YAML under
+`lib/database/sdk_data/`.
 
 ## Disclaimer
 
